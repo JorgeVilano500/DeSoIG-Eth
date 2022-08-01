@@ -15,13 +15,13 @@
     "chai-as-promised": "7.1.1",
     "chai-bignumber": "3.0.0",
     "identicon.js": "^2.3.3",
-    "ipfs-http-client": "^57.0.3",
+    "ipfs-http-client": "^57.0.0",
     "react": "16.8.4",
     "react-bootstrap": "^1.6.5",
     "react-dom": "16.8.4",
-    "react-scripts": "^5.0.1",
+    "react-scripts": "^2.1.3",
     "truffle": "^5.1.65",
-    "web3": "^1.7.4"
+    "web3": "^1.2.1"
   },
   "homepage": "http://dappuniversity.github.io/decentragram",
   "scripts": {
@@ -42,6 +42,7 @@
     "not op_mini all"
   ],
   "devDependencies": {
+    "@types/web3": "^1.2.2",
     "gh-pages": "^2.2.0"
   }
 }
