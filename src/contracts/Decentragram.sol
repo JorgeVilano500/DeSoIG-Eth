@@ -1,9 +1,11 @@
-pragma solidity ^0.5.0;
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.0;
 // when we are done with the contract use 'truffle migrate --reset' if you are putting up the same smart contract
 
 contract Decentragram {
   // Code goes here...
   string public name = 'Decentragram'; 
+  // address payable author = msg.sender; 
 
 
   //store posts 
@@ -51,9 +53,9 @@ contract Decentragram {
     imageCount ++; // handles ID count
 
 
-    images[imageCount] = Image(imageCount, _imgHash, _description, 0, msg.sender);
+    images[imageCount] = Image(imageCount, _imgHash, _description, 0, payable(msg.sender));
 
-    emit ImageCreated(imageCount, _imgHash, _description, 0, msg.sender);
+    emit ImageCreated(imageCount, _imgHash, _description, 0, payable(msg.sender));// have to explicitly put payable for msg.sender now to send money to it. in 0.5.0 it was default a payable address
 
 
   }
@@ -70,7 +72,7 @@ contract Decentragram {
     address payable _author = _image.author;
    
    
-    address(_author).transfer(msg.value);// msg.value is the crypto sent in to the function when it was called. 
+    _author.transfer(msg.value);// msg.value is the crypto sent in to the function when it was called. 
   // msg.value will send the ether to the author aka the person who deployed the contract. 
     // this is a transfer money payment method! pay attention!
     
